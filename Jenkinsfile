@@ -8,7 +8,7 @@ pipeline {
    stages {
        stage('Checkout') {
            steps {
-               git branch: 'main', url: 'https://github.com/Kerfinaprian/D_2200016030_Kerfin-Aprian_P-8-PPMPL.git' 
+               git branch: 'main', url: 'https://github.com/Kerfinaprian/CICD_Jenkins_Kerfin_Aprian_P-8-PPML.git' 
            }
        }
 
