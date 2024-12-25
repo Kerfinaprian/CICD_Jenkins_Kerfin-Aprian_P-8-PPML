@@ -1,12 +1,17 @@
 {
   "name": "d_kerfin-aprian_2200016030_prak-8",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kerfin Aprian",
   "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3"
+  }
 }
