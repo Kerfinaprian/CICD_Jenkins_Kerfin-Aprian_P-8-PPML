@@ -1,46 +1,50 @@
-pipeline {
-    agent any
-    environment {
-        CI = 'true'
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Kerfinaprian/D_2200016030_Kerfin_Aprian_P-8-PPMPL.git'
-            }
-        }
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Run Unit Tests') {
-            steps {
-                sh 'npm test'
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'Building the application...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the application...'
-            }
-        }
-    }
-   post {
-    success {
-        emailext subject: 'Build Succeeded',
-                 body: 'The build was successful!',
-                 recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-    }
-    failure {
-        emailext subject: 'Build Failed',
-                 body: 'The build has failed.',
-                 recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-    }
-}
+pipeline { 
+   agent any
 
+   environment {
+       CI = 'true'
+   }
+
+   stages {
+       stage('Checkout') {
+           steps {
+               git branch: 'main', url: 'https://github.com/Kerfinaprian/D_2200016030_Kerfin-Aprian_P-8-PPMPL.git' 
+           }
+       }
+
+       stage('Install Dependencies') {
+           steps {
+               bat 'npm install'
+           }
+       }
+
+       stage('Run Unit Tests') {
+           steps {
+               bat 'npm test'
+           }
+       }
+
+       stage('Build') {
+           steps {
+               echo 'Building the application...'
+               // Tambahkan perintah build jika diperlukan
+           }
+       }
+
+       stage('Deploy') {
+           steps {
+               echo 'Deploying the application...'
+               // Tambahkan perintah deploy jika diperlukan
+           }
+       }
+   }
+
+   post {
+       success {
+           echo 'Pipeline finished successfully!' 
+       }
+       failure {
+           echo 'Pipeline failed!'
+       }
+   }
 }
