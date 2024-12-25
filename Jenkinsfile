@@ -27,14 +27,14 @@ pipeline {
        stage('Build') {
            steps {
                echo 'Building the application...'
-               // Tambahkan perintah build jika diperlukan
+               
            }
        }
 
        stage('Deploy') {
            steps {
                echo 'Deploying the application...'
-               // Tambahkan perintah deploy jika diperlukan
+             
            }
        }
    }
